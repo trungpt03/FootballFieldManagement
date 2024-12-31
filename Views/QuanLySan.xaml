@@ -1,0 +1,33 @@
+﻿<Window x:Class="QuanLySanBong.Views.QuanLySan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLySanBong.Views"
+        mc:Ignorable="d"
+        Title="Quản Lý Sân" Height="400" Width="380" Background="#F5F5F5" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <!-- Tiêu đề -->
+        <TextBlock Text="Quản Lý Sân Bóng" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+
+        <!-- Form nhập liệu -->
+        <StackPanel Orientation="Horizontal" Margin="0,40,0,0" VerticalAlignment="Top">
+            <TextBlock Text="Tên Sân:" VerticalAlignment="Center" Margin="5" />
+            <TextBox x:Name="NameTextBox" Width="200" Margin="5" />
+        </StackPanel>
+
+        <!-- Danh sách sân -->
+        <DataGrid x:Name="StadiumDataGrid" AutoGenerateColumns="False" Margin="0,80,0,80" SelectionChanged="StadiumDataGrid_SelectionChanged" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tên Sân" Binding="{Binding Name}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Nút thao tác -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10">
+            <Button Content="Thêm" Width="100" Margin="5" Click="AddStadium_Click" />
+            <Button Content="Sửa" Width="100" Margin="5" Click="EditStadium_Click" />
+            <Button Content="Xóa" Width="100" Margin="5" Click="DeleteStadium_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

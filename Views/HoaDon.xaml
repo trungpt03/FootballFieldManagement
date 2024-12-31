@@ -1,0 +1,82 @@
+﻿<Window x:Class="QuanLySanBong.Views.HoaDon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLySanBong.Views"
+        mc:Ignorable="d"
+        Title="Hóa đơn" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10" VerticalAlignment="Top" Grid.Column="0">
+
+            <!-- Header -->
+            <TextBlock Text="Thông tin hóa đơn" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+            <!-- Giờ vào và Giờ ra -->
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Giờ vào:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Name="StartTimeText" Width="120" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Giờ ra:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Name="EndTimeText" Width="120" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+            <!-- Tổng giờ sử dụng -->
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Tổng giờ sử dụng:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Name="TotalHoursText" Width="120" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Tiền dịch vụ:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Name="DichVuText" Width="120" VerticalAlignment="Center"/>
+            </WrapPanel>
+
+            <!-- Nhập tiền sân -->
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Tiền sân:" Width="120" VerticalAlignment="Center"/>
+                <TextBox Name="TienSanTextBox" Width="25" TextChanged="TienSanTextBox_TextChanged" BorderThickness="1"/>
+                <TextBlock>.000VND</TextBlock>
+            </WrapPanel>
+
+            <!-- Nhập giảm giá -->
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Giảm giá:" Width="120" VerticalAlignment="Center"/>
+                <TextBox Name="GiamGiaTextBox" Text="0" Width="25" TextChanged="GiamGiaTextBox_TextChanged"/>
+                <TextBlock>.000VND</TextBlock>
+            </WrapPanel>
+
+            <!-- Tổng tiền -->
+            <WrapPanel Margin="0,5">
+                <TextBlock Text="Tổng tiền (VND):" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Name="TongTienText" Width="120" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="Red"/>
+            </WrapPanel>
+            
+            <StackPanel Margin="0,5">
+                <TextBlock Text="Ghi chú:" Width="120" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtGhiChu" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left" Height="60" TextWrapping="Wrap" FontFamily="Segoe UI"/>
+            </StackPanel>
+
+            <!-- Buttons -->
+            <WrapPanel HorizontalAlignment="Center" Margin="0,20">
+                <Button x:Name="ConfirmButton" Content="Xác nhận" Width="100" Margin="5" Click="ConfirmButton_Click"/>
+                <Button Content="Hủy" Width="100" Margin="5" Click="CancelButton_Click"/>
+            </WrapPanel>
+
+        </StackPanel>
+
+        <DataGrid x:Name="dgDichVu" AutoGenerateColumns="False" Grid.Column="1" Margin="10" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tên Sản Phẩm" Binding="{Binding ProductName}" Width="120"/>
+                <DataGridTextColumn Header="SL" Binding="{Binding Quantity}" Width="40"/>
+                <DataGridTextColumn Header="Tổng Tiền" Binding="{Binding TotalPrice, StringFormat=N0}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

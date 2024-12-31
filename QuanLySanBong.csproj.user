@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\DatSanCoDinh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\DichVu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HoaDon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LichDatSan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LichSuThueSan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\QuanLyProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\QuanLySan.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TrangChu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\DatSanCoDinh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DichVu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HoaDon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LichDatSan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\LichSuThueSan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\QuanLyProduct.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\QuanLySan.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TrangChu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

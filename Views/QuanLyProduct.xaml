@@ -1,0 +1,46 @@
+﻿<Window x:Class="QuanLySanBong.Views.QuanLyProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quản Lý Hàng hóa" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Form nhập liệu -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,0,0,10">
+            <Label Content="Tên sản phẩm:" VerticalAlignment="Center" />
+            <TextBox x:Name="txtProductName" Width="150" Margin="5,0" VerticalContentAlignment="Center" FontFamily="Segoe UI"/>
+
+            <!--<Label Content="Giá nhập:" VerticalAlignment="Center" />
+            <TextBox x:Name="txtPurchasePrice" Width="100" Margin="5,0" VerticalContentAlignment="Center"/>-->
+
+            <Label Content="Giá bán:" VerticalAlignment="Center" />
+            <TextBox x:Name="txtSalePrice" Width="25" Margin="5,0" VerticalContentAlignment="Center"/>
+            <TextBlock VerticalAlignment="Center">.000 VND</TextBlock>
+
+            <!--<Label Content="Tồn kho:" VerticalAlignment="Center" />
+            <TextBox x:Name="txtStockQuantity" Width="100" Margin="5,0" VerticalContentAlignment="Center"/>-->
+        </StackPanel>
+
+        <!-- Các nút hành động -->
+        <WrapPanel Grid.Row="0" Margin="0,40,0,10">
+            <Button Content="Thêm" Width="80" Margin="10,0" Click="AddProduct_Click" />
+            <Button Content="Cập nhật" Width="80" Margin="10,0" Click="UpdateProduct_Click" />
+            <Button Content="Xóa" Width="80" Margin="10,0" Click="DeleteProduct_Click" />
+        </WrapPanel>
+
+        <!-- Danh sách sản phẩm -->
+        <DataGrid x:Name="dataGridProducts" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+                  SelectionChanged="DataGridProducts_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ProductID}" Width="30" />
+                <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding Name}" Width="*" />
+                <!--<DataGridTextColumn Header="Giá nhập" Binding="{Binding PurchasePrice}" Width="100" />-->
+                <DataGridTextColumn Header="Giá bán" Binding="{Binding SalePrice}" Width="*" />
+                <!--<DataGridTextColumn Header="Tồn kho" Binding="{Binding StockQuantity}" Width="100" />-->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,80 @@
+﻿<Window x:Class="QuanLySanBong.Views.DatSanCoDinh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Đặt Sân Cố Định" Height="350" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="93*"/>
+            <ColumnDefinition Width="197*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Tiêu đề -->
+        <TextBlock Text="Đặt Sân Cố Định" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="27,0,0,10" Grid.Row="0" Grid.Column="1"/>
+
+        <!-- Nội dung -->
+        <StackPanel Grid.Row="1" Margin="30,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+            <!-- Chọn ngày -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Ngày Bắt Đầu:" VerticalAlignment="Center" Width="100"/>
+                <DatePicker x:Name="dpBatDau" Width="150" VerticalContentAlignment="Center"/>
+                <TextBlock Text="Ngày Kết Thúc:" VerticalAlignment="Center" Margin="20,0,0,0" Width="100"/>
+                <DatePicker x:Name="dpKetThuc" Width="150" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <WrapPanel>
+                <!-- Chọn sân -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Sân:" VerticalAlignment="Center" Width="100"/>
+                    <ComboBox x:Name="cbSan" Width="150" DisplayMemberPath="Name" SelectedValuePath="StadiumID" Height="22" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Chọn thứ -->
+                <StackPanel Orientation="Horizontal" Margin="20,0,0,10">
+                    <TextBlock Text="Chọn Thứ:" VerticalAlignment="Center" Width="100"/>
+                    <ComboBox x:Name="cbThu" Width="150" Height="22" IsEditable="False" IsReadOnly="True" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Thứ hai" />
+                        <ComboBoxItem Content="Thứ ba" />
+                        <ComboBoxItem Content="Thứ tư" />
+                        <ComboBoxItem Content="Thứ năm" />
+                        <ComboBoxItem Content="Thứ sáu" />
+                        <ComboBoxItem Content="Thứ bảy" />
+                        <ComboBoxItem Content="Chủ nhật" />
+                    </ComboBox>
+                </StackPanel>
+            </WrapPanel>
+
+            <!-- Chọn giờ -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Giờ Bắt Đầu:" VerticalAlignment="Center" Width="100"/>
+                <ComboBox x:Name="cbGioBatDau" Width="150" Height="22" VerticalContentAlignment="Center" SelectionChanged="cbGioBatDau_SelectionChanged"/>
+                <TextBlock Text="Giờ Kết Thúc:" VerticalAlignment="Center" Margin="20,0,0,0" Width="100"/>
+                <ComboBox x:Name="cbGioKetThuc" Width="150" Height="22" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Thông tin khách hàng -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Tên Khách Hàng:" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="txtTenKhachHang" Width="300" Height="20" FontFamily="Segoe UI" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Số Điện Thoại:" VerticalAlignment="Center" Width="100"/>
+                <TextBox x:Name="txtSoDienThoai" Width="300" Height="20" FontFamily="Segoe UI" VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Trạng thái -->
+            <StackPanel Orientation="Horizontal" Margin="20,5,0,0">
+                <CheckBox x:Name="cbIsMatch" Content="Đã có đối?" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Nút thao tác -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button x:Name="btnDatSan" Content="Đặt Sân" Width="100" Height="30" Margin="0,0,20,0" Click="btnDatSan_Click"/>
+                <Button x:Name="btnHuy" Content="Hủy" Width="100" Height="30" Click="btnHuy_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

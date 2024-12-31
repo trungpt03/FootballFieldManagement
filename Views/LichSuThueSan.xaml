@@ -1,0 +1,67 @@
+﻿<Window x:Class="QuanLySanBong.Views.LichSuThueSan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLySanBong.Views"
+        mc:Ignorable="d"
+        Title="Lịch sử Hóa đơn" Height="450" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" Margin="10">
+            <TextBlock VerticalAlignment="Center" Margin="0,0,5,0">Ngày bắt đầu</TextBlock>
+            <DatePicker Name="dpBatDau" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBlock VerticalAlignment="Center" Margin="10,0,5,0">Ngày kết thúc</TextBlock>
+            <DatePicker Name="dpKetThuc" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBlock VerticalAlignment="Center" Margin="10,0,5,0">Sân</TextBlock>
+            <ComboBox x:Name="cbSan" VerticalAlignment="Center" Width="100" />
+            <Button x:Name="btnBaoCao" Margin="40,0,10,0" Click="btnBaoCao_Click" Width="50" Height="24">Báo cáo</Button>
+            <Button x:Name="btnTatCa" Click="btnTatCa_Click" Width="50" Margin="20,0,0,0">Tất cả</Button>
+        </WrapPanel>
+        <Button x:Name="btnXoaTatCa" Grid.Row="0" Content="Xóa tất cả " Width="70" Height="24" HorizontalAlignment="Right" Margin="0,0,150,0" Click="btnXoaTatCa_Click"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- DataGrid hiển thị lịch sử -->
+            <DataGrid Name="HistoryDataGrid" Grid.Row="0" AutoGenerateColumns="False" Margin="10" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã" Binding="{Binding InvoiceID}" Width="50"/>
+                    <DataGridTextColumn Header="Tên sân" Binding="{Binding StadiumName}" Width="100"/>
+                    <DataGridTextColumn Header="Ngày" Binding="{Binding InvoiceDate, StringFormat=dd/MM/yyyy}" Width="80"/>
+                    <DataGridTextColumn Header="Giờ Bắt Đầu" Binding="{Binding StartTime, StringFormat=HH:mm:ss}" Width="80"/>
+                    <DataGridTextColumn Header="Giờ Kết Thúc" Binding="{Binding EndTime, StringFormat=HH:mm:ss}" Width="80"/>
+                    <DataGridTextColumn Header="Tổng thời gian (giờ)" Binding="{Binding TotalTime, StringFormat=0.0}" Width="90"/>
+                    <DataGridTextColumn Header="Tiền Sân" Binding="{Binding StadiumFee, StringFormat=N0}" Width="70"/>
+                    <DataGridTextColumn Header="Dịch Vụ" Binding="{Binding ServiceFee, StringFormat=N0}" Width="70"/>
+                    <DataGridTextColumn Header="Giảm giá" Binding="{Binding Discount, StringFormat=N0}" Width="70"/>
+                    <DataGridTextColumn Header="Tổng Tiền" Binding="{Binding TotalPrice, StringFormat=N0}" Width="70"/>
+                    <DataGridTextColumn Header="Ghi chú" Binding="{Binding Note}" Width="170"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Hàng tổng -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10" Background="#EEE">
+                <TextBlock Text="Tổng Tiền Sân: " FontWeight="Bold" />
+                <TextBlock Name="TotalStadiumFeeText" Margin="5,0" />
+                <TextBlock Text="Tổng Dịch Vụ: " FontWeight="Bold" Margin="20,0,0,0" />
+                <TextBlock Name="TotalServiceFeeText" Margin="5,0" />
+                <TextBlock Text="Tổng Giảm Giá: " FontWeight="Bold" Margin="20,0,0,0" />
+                <TextBlock Name="TotalDiscountText" Margin="5,0" />
+                <TextBlock Text="Tổng Cộng: " FontWeight="Bold" Margin="20,0,0,0" />
+                <TextBlock Name="GrandTotalText" Margin="5,0" />
+            </StackPanel>
+        </Grid>
+
+
+        <Button Content="Đóng" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Width="80" Click="CloseButton_Click" Grid.Row="2"/>
+    </Grid>
+</Window>
